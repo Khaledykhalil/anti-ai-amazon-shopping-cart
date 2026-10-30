@@ -1,0 +1,31 @@
+{
+  "name": "anti-ai-amazon-shopping-cart",
+  "version": "1.0.0",
+  "description": "Chrome extension to detect, flag, and hide AI-generated product photography, synthetic models, and marketing slop on Amazon, prioritizing real customer photos.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "vite build && npm run build:content",
+    "build:content": "vite build --config vite.content.config.ts",
+    "typecheck": "tsc --noEmit",
+    "generate-icons": "python3 scripts/generate-icons.py"
+  },
+  "keywords": [
+    "chrome-extension",
+    "amazon",
+    "anti-ai",
+    "ai-detector",
+    "ecommerce",
+    "shopping",
+    "manifest-v3",
+    "product-photography"
+  ],
+  "author": "Khaled Khalil",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.308",
+    "@types/node": "^26.6.6",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0"
+  }
+}
