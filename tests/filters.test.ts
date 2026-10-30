@@ -10,6 +10,92 @@ import {
   evaluateSponsoredAd,
   evaluateLowTrustOrNSFW
 } from '../src/filters/heuristics';
+import { brandLookupEngine } from '../src/filters/listLoader';
+import type { ProductNode } from '../src/engine/types';
+
+function createMockProduct(overrides: Partial<ProductNode>): ProductNode {
+  return {
+    element: {} as HTMLElement,
+    id: 'mock-1',
+    platform: 'amazon',
+    title: overrides.title || 'Product Title',
+    brand: overrides.brand || '',
+    isSponsored: false,
+    badges: [],
+    rawText: overrides.rawText || '',
+    ...overrides
+  };
+}
+
+describe('BrandLookupEngine & Hierarchy Compiler', () => {
+  it('accurately matches BDS priority brands via brand metadata', () => {
+    const node = createMockProduct({ brand: 'SodaStream', title: 'Terra Sparkling Water Maker' });
+    const match = brandLookupEngine.matchBoycott(node);
+    expect(match).not.toBeNull();
+    expect(match?.matchedBrand).toBe('SodaStream');
+    expect(match?.parentCompany).toContain('PepsiCo');
+    expect(match?.subCategory).toBe('bds_priority');
+  });
+
+  it('matches sub-brands mapped to parent conglomerates (Nestlé, Unilever, P&G)', () => {
+    // DiGiorno -> Nestlé
+    const digiornoNode = createMockProduct({ brand: 'DiGiorno', title: 'Four Cheese Frozen Pizza' });
+    const digiornoMatch = brandLookupEngine.matchBoycott(digiornoNode);
+    expect(digiornoMatch).not.toBeNull();
+    expect(digiornoMatch?.parentCompany).toContain('Nestlé');
+
+    // Axe / Lynx -> Unilever
+    const axeNode = createMockProduct({ brand: 'Axe', title: 'Body Spray Deodorant 4oz' });
+    const axeMatch = brandLookupEngine.matchBoycott(axeNode);
+    expect(axeMatch).not.toBeNull();
+    expect(axeMatch?.parentCompany).toContain('Unilever');
+
+    // Dawn -> P&G
+    const dawnNode = createMockProduct({ brand: 'Dawn', title: 'Platinum Dish Soap' });
+    const dawnMatch = brandLookupEngine.matchBoycott(dawnNode);
+    expect(dawnMatch).not.toBeNull();
+    expect(dawnMatch?.parentCompany).toContain('Procter & Gamble');
+  });
+
+  it('strict word boundary prevents false positives on short tokens (HP, CAT, LU, All)', () => {
+    // "Headphones" should NOT match "HP"
+    const headphonesNode = createMockProduct({ brand: 'GenericAudio', title: 'Wireless Over-Ear Headphones with Mic' });
+    expect(brandLookupEngine.matchBoycott(headphonesNode)).toBeNull();
+
+    // "Cat Scratcher" should NOT match "CAT" (Caterpillar)
+    const catScratcherNode = createMockProduct({ brand: 'PetPals', title: 'Sisal Board Cat Scratcher for Kittens' });
+    expect(brandLookupEngine.matchBoycott(catScratcherNode)).toBeNull();
+
+    // "HP Pavilion" WITH proper word boundaries SHOULD match HP
+    const hpNode = createMockProduct({ brand: 'HP', title: 'HP Pavilion 15 Laptop' });
+    const hpMatch = brandLookupEngine.matchBoycott(hpNode);
+    expect(hpMatch).not.toBeNull();
+    expect(hpMatch?.parentCompany).toContain('HP Inc.');
+  });
+
+  it('correctly distinguishes direct animal testing from acquired subsidiaries', () => {
+    // Clinique -> Direct Testing under Estée Lauder
+    const cliniqueNode = createMockProduct({ brand: 'Clinique', title: 'Moisture Surge 100H Hydrator' });
+    const directMatch = brandLookupEngine.matchCrueltyFree(cliniqueNode, true);
+    expect(directMatch).not.toBeNull();
+    expect(directMatch?.subCategory).toBe('direct_testing');
+    expect(directMatch?.parentCompany).toContain('Estée Lauder');
+
+    // The Ordinary -> Acquired Subsidiary under Estée Lauder
+    const ordinaryNode = createMockProduct({ brand: 'The Ordinary', title: 'Niacinamide 10% + Zinc 1%' });
+    const subMatch = brandLookupEngine.matchCrueltyFree(ordinaryNode, true);
+    expect(subMatch).not.toBeNull();
+    expect(subMatch?.subCategory).toBe('parent_company_tests');
+
+    // When includeSubsidiaries = false, acquired subsidiaries are exempted
+    const strictOffMatch = brandLookupEngine.matchCrueltyFree(ordinaryNode, false);
+    expect(strictOffMatch).toBeNull();
+
+    // But direct testing brands remain filtered
+    const stillFilteredMatch = brandLookupEngine.matchCrueltyFree(cliniqueNode, false);
+    expect(stillFilteredMatch).not.toBeNull();
+  });
+});
 
 describe('Alphabet-Soup Dropship Entropy Filter', () => {
   it('flags unpronounceable consonant-only trademark-farm brands', () => {

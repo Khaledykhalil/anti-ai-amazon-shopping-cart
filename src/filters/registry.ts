@@ -14,6 +14,7 @@ import {
   evaluateSponsoredAd,
   evaluateUltraProcessed
 } from './heuristics';
+import { brandLookupEngine } from './listLoader';
 
 // Category Configurations
 export const FILTER_METADATA: Record<FilterCategoryId, FilterCategoryConfig> = {
@@ -147,20 +148,12 @@ export async function loadFilterDatabases(): Promise<void> {
     }
 
     try {
-      if (path.includes('boycotts')) {
-        const mod = await import('../../public/lists/boycotts.json');
-        return mod.default.entries || [];
-      }
       if (path.includes('environment')) {
         const mod = await import('../../public/lists/environment.json');
         return mod.default.entries || [];
       }
       if (path.includes('labor')) {
         const mod = await import('../../public/lists/labor.json');
-        return mod.default.entries || [];
-      }
-      if (path.includes('cruelty_free')) {
-        const mod = await import('../../public/lists/cruelty_free.json');
         return mod.default.entries || [];
       }
       if (path.includes('house_brands')) {
@@ -173,18 +166,14 @@ export async function loadFilterDatabases(): Promise<void> {
     return [];
   };
 
-  const [b, e, l, c, h] = await Promise.all([
-    fetchList('lists/boycotts.json'),
+  const [e, l, h] = await Promise.all([
     fetchList('lists/environment.json'),
     fetchList('lists/labor.json'),
-    fetchList('lists/cruelty_free.json'),
     fetchList('lists/house_brands.json')
   ]);
 
-  boycottsList = b;
   environmentList = e;
   laborList = l;
-  crueltyFreeList = c;
   houseBrandsList = h;
   listsLoaded = true;
 }
@@ -271,15 +260,15 @@ export async function evaluateProduct(
 
   // 3. Category: BDS & Ethical Boycotts
   if (preferences.filters.bds_boycott?.enabled) {
-    const match = matchBrandInList(brand, title, boycottsList);
+    const match = brandLookupEngine.matchBoycott(product);
     if (match) {
       evaluations.push({
         matched: true,
         categoryId: 'bds_boycott',
         reason: match.reason,
-        citation: match.citation,
-        parentCompany: match.parent,
-        confidence: 0.95,
+        citation: match.sourceUrl,
+        parentCompany: match.parentCompany,
+        confidence: match.subCategory === 'bds_priority' ? 1.0 : 0.95,
         action: preferences.filters.bds_boycott.action
       });
     }
@@ -377,15 +366,15 @@ export async function evaluateProduct(
 
   // 10. Category: Non-Cruelty-Free & Animal Testing
   if (preferences.filters.animal_testing?.enabled) {
-    const cfMatch = matchBrandInList(brand, title, crueltyFreeList);
+    const cfMatch = brandLookupEngine.matchCrueltyFree(product, true);
     if (cfMatch) {
       evaluations.push({
         matched: true,
         categoryId: 'animal_testing',
         reason: cfMatch.reason,
-        citation: cfMatch.citation,
-        parentCompany: cfMatch.parent,
-        confidence: 0.90,
+        citation: cfMatch.sourceUrl,
+        parentCompany: cfMatch.parentCompany,
+        confidence: 0.95,
         action: preferences.filters.animal_testing.action
       });
     }
