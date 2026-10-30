@@ -1,31 +1,42 @@
 {
-  "name": "anti-ai-amazon-shopping-cart",
+  "name": "blurify",
   "version": "1.0.0",
-  "description": "Chrome extension to detect, flag, and hide AI-generated product photography, synthetic models, and marketing slop on Amazon, prioritizing real customer photos.",
+  "description": "Universal Ethical & Slop Filter for E-Commerce. Detect, blur, dim, or hide AI slop, dropshippers, ethical boycotts, ultra-processed food, and predatory ads across Amazon, eBay, Walmart, Shopify, and any store.",
+  "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite build --watch --mode development",
-    "build": "vite build && npm run build:content",
-    "build:content": "vite build --config vite.content.config.ts",
-    "typecheck": "tsc --noEmit",
-    "generate-icons": "python3 scripts/generate-icons.py"
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:chrome": "wxt build -b chrome",
+    "build:firefox": "wxt build -b firefox",
+    "build:safari": "wxt build -b safari",
+    "zip": "wxt zip",
+    "zip:chrome": "wxt zip -b chrome",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:safari": "wxt zip -b safari",
+    "compile": "tsc --noEmit",
+    "test": "vitest run"
   },
-  "keywords": [
-    "chrome-extension",
-    "amazon",
-    "anti-ai",
-    "ai-detector",
-    "ecommerce",
-    "shopping",
-    "manifest-v3",
-    "product-photography"
-  ],
-  "author": "Khaled Khalil",
-  "license": "MIT",
+  "dependencies": {
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "devDependencies": {
-    "@types/chrome": "^0.0.308",
-    "@types/node": "^26.6.6",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "4.3.4",
+    "@wxt-dev/module-react": "^1.2.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
-    "vite": "^6.2.0"
+    "vitest": "^3.0.6",
+    "wxt": "^0.21.5"
+  },
+  "overrides": {
+    "@vitejs/plugin-react": "4.3.4"
   }
 }

@@ -1,0 +1,128 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-29T00:00:00Z",
+  "category": "labor_violations",
+  "description": "Forced Labor, Sweatshop, and Fair Labor Violation Watchlist grounded in official Department of Labor and NGO investigations.",
+  "entries": [
+    {
+      "brand": "Temu",
+      "parent": "PDD Holdings",
+      "aliases": ["TEMU"],
+      "reason": "US Congressional House Select Committee report concluded Temu poses an extremely high risk of products tainted with Xinjiang forced labor under UFLPA.",
+      "citation": "https://selectcommitteeontheccp.house.gov/media/press-releases/select-committee-finds-fast-fashion-giants-fuel-forced-labor-risk",
+      "violationType": "State-Sponsored Forced Labor Risk"
+    },
+    {
+      "brand": "Shein",
+      "parent": "Roadget Business Pte. Ltd.",
+      "aliases": ["SHEIN"],
+      "reason": "Bloomberg laboratory isotopic tests confirmed Shein garments contained cotton sourced from Xinjiang region linked to forced labor camps.",
+      "citation": "https://www.bloomberg.com/news/features/2022-11-21/shein-s-cotton-clothes-tied-to-xinjiang-forced-labor-in-china",
+      "violationType": "Cotton Sourcing from Forced Labor Zones"
+    },
+    {
+      "brand": "Boohoo",
+      "parent": "Boohoo Group PLC",
+      "aliases": ["Boohoo", "PrettyLittleThing", "Nasty Gal"],
+      "reason": "Independent Alison Levitt QC review confirmed widespread non-payment of minimum wage and illegal working conditions across Leicester suppliers.",
+      "citation": "https://www.boohooplc.com/sites/boohoo-corp/files/2020-09/independent-review-of-boohoo-group-plc.pdf",
+      "violationType": "Sub-Minimum Wage Sweatshop Exploitation"
+    },
+    {
+      "brand": "Baronshire",
+      "parent": "Various OEM Suppliers",
+      "aliases": ["Baronshire Apparel"],
+      "reason": "Included on US Customs and Border Protection Withhold Release Orders (WRO) for forced child and prison labor goods.",
+      "citation": "https://www.cbp.gov/trade/forced-labor/withhold-release-orders-and-findings",
+      "violationType": "CBP Withhold Release Order"
+    },
+    {
+      "brand": "Hela Clothing",
+      "parent": "Hela Apparel Holdings",
+      "aliases": ["Hela Intimates"],
+      "reason": "Worker rights consortia investigations identified illegal union busting, unpaid severance, and excessive mandatory overtime in East African supply lines.",
+      "citation": "https://www.workersrights.org/factory-investigation/",
+      "violationType": "Freedom of Association Violations & Forced Overtime"
+    },
+    {
+      "brand": "Foxconn",
+      "parent": "Hon Hai Precision Industry Co.",
+      "aliases": ["Foxconn Technology"],
+      "reason": "Documented instances of coerced student intern labor and illegal dispatch worker quotas exceeding Chinese statutory limits.",
+      "citation": "https://www.chinalaborwatch.org/report/foxconn-labor-conditions/",
+      "violationType": "Coerced Student Labor & Illegal Dispatch Work"
+    },
+    {
+      "brand": "Nestle Cocoa",
+      "parent": "Nestlé S.A.",
+      "aliases": ["Nestle Chocolate", "Kit Kat (International)"],
+      "reason": "Named in International Rights Advocates lawsuits regarding failure to eradicate documented child slavery in West African cocoa farms.",
+      "citation": "https://www.theguardian.com/global-development/2021/feb/12/mars-nestle-and-hershey-to-face-landmark-child-slavery-lawsuit-in-us",
+      "violationType": "Agricultural Child Forced Labor"
+    },
+    {
+      "brand": "Mars",
+      "parent": "Mars, Incorporated",
+      "aliases": ["M&M's", "Snickers", "Twix", "Dove Chocolate", "Milky Way"],
+      "reason": "CBS News investigation documented children as young as 5 harvesting cocoa beans supplying Mars supply chains in Ghana.",
+      "citation": "https://www.cbsnews.com/news/mars-chocolate-child-labor-ghana-cbs-news-investigation/",
+      "violationType": "Hazardous Child Labor"
+    },
+    {
+      "brand": "Hershey",
+      "parent": "The Hershey Company",
+      "aliases": ["Hershey's", "Reese's", "Kit Kat (US)"],
+      "reason": "Failure to fulfill decades-old Harkin-Engel Protocol commitments to eliminate abusive child labor from cocoa supply chains.",
+      "citation": "https://www.washingtonpost.com/graphics/2019/business/hershey-nestle-mars-chocolate-child-labor-west-africa/",
+      "violationType": "Cocoa Supply Chain Child Exploitation"
+    },
+    {
+      "brand": "Mondelez Cocoa",
+      "parent": "Mondelēz International",
+      "aliases": ["Cadbury Cocoa", "Oreo Chocolate"],
+      "reason": "Channel 4 Dispatches exposé revealed child labor in Cadbury supply chains in Ghana, wielding machetes for cocoa pod harvesting.",
+      "citation": "https://www.channel4.com/programmes/cadbury-exposed-dispatches",
+      "violationType": "Hazardous Child Labor in Cocoa"
+    },
+    {
+      "brand": "Bata",
+      "parent": "Bata Shoe Company",
+      "aliases": ["Bata Shoes"],
+      "reason": "Clean Clothes Campaign documented systematic suppression of collective bargaining and poverty wages across South Asian manufacturing hubs.",
+      "citation": "https://cleanclothes.org/campaigns/living-wage",
+      "violationType": "Sub-Living Wages and Labor Repression"
+    },
+    {
+      "brand": "Esquel Group",
+      "parent": "Esquel Group",
+      "aliases": ["Changji Esquel"],
+      "reason": "Sanctioned by the US Department of Commerce Bureau of Industry and Security for involvement in forced labor in Xinjiang.",
+      "citation": "https://www.federalregister.gov/documents/2020/07/22/2020-15888/addition-of-certain-entities-to-the-entity-list",
+      "violationType": "Entity List Sanction for Forced Labor"
+    },
+    {
+      "brand": "Top Glove",
+      "parent": "Top Glove Corporation Bhd",
+      "aliases": ["TopGlove"],
+      "reason": "Subject to US CBP seizure order after finding clear evidence of debt bondage, retention of identity documents, and abusive living conditions.",
+      "citation": "https://www.cbp.gov/newsroom/national-media-release/cbp-issues-forced-labor-finding-top-glove-corporation-bhd",
+      "violationType": "Debt Bondage & Migrant Exploitation"
+    },
+    {
+      "brand": "Supermax",
+      "parent": "Supermax Corporation Berhad",
+      "aliases": ["Supermax Gloves"],
+      "reason": "CBP issued Withhold Release Order based on 10 of 11 International Labour Organization (ILO) forced labor indicators.",
+      "citation": "https://www.cbp.gov/newsroom/national-media-release/cbp-issues-withhold-release-order-supermax-corporation-bhd-and-its",
+      "violationType": "ILO Forced Labor Indicators"
+    },
+    {
+      "brand": "Dalian Ocean Fishing",
+      "parent": "Dalian Ocean Fishing Co., Ltd.",
+      "aliases": ["Dalian Tuna"],
+      "reason": "CBP Withhold Release Order for entire distant-water tuna fishing fleet over physical violence, wage withholding, and forced labor at sea.",
+      "citation": "https://www.cbp.gov/newsroom/national-media-release/cbp-issues-withhold-release-order-dalian-ocean-fishing-co-ltd",
+      "violationType": "Maritime Forced Labor and Physical Abuse"
+    }
+  ]
+}

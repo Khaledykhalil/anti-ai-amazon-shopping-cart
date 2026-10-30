@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-29T00:00:00Z",
+  "category": "house_brands",
+  "description": "Retailer monopoly private labels and self-preferenced house brands designed to undercut independent sellers.",
+  "entries": [
+    {
+      "brand": "Amazon Basics",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["AmazonBasics", "amazon basics", "Amazon Basic"],
+      "platform": "amazon",
+      "reason": "Amazon's flagship generic private label; systematically clone and undercut third-party merchant bestsellers.",
+      "citation": "https://www.wsj.com/articles/amazon-scooped-up-data-from-its-own-sellers-to-launch-competing-products-11587650015"
+    },
+    {
+      "brand": "Amazon Essentials",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Amazon Essentials", "amazon essentials"],
+      "platform": "amazon",
+      "reason": "Amazon private-label apparel line privileged in search algorithms over independent clothing brands.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Apparel"
+    },
+    {
+      "brand": "Solimo",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Solimo", "solimo"],
+      "platform": "amazon",
+      "reason": "Amazon private-label personal care, coffee, and household line often positioned at top of search results.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Household & Grocery"
+    },
+    {
+      "brand": "365 by Whole Foods Market",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["365 Everyday Value", "Whole Foods 365", "365 by WFM"],
+      "platform": "amazon",
+      "reason": "Amazon/Whole Foods proprietary grocery house brand.",
+      "citation": "https://www.wholefoodsmarket.com/products/365-by-whole-foods-market",
+      "category": "Grocery"
+    },
+    {
+      "brand": "Presto!",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Presto! Bio-based", "Amazon Presto"],
+      "platform": "amazon",
+      "reason": "Amazon private-label paper towels, bath tissue, and detergent.",
+      "citation": "https://www.bloomberg.com/news/articles/2018-03-29/amazon-quietly-launches-private-label-paper-goods-called-presto",
+      "category": "Household"
+    },
+    {
+      "brand": "Mama Bear",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Amazon Mama Bear"],
+      "platform": "amazon",
+      "reason": "Amazon private-label baby wipes, diapers, and organic baby food.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Baby"
+    },
+    {
+      "brand": "Pinzon",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Pinzon by Amazon"],
+      "platform": "amazon",
+      "reason": "Amazon private-label bedding, linens, and towels.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Home & Bedding"
+    },
+    {
+      "brand": "Daily Ritual",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Daily Ritual by Amazon"],
+      "platform": "amazon",
+      "reason": "Amazon private-label women's basics apparel brand.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Apparel"
+    },
+    {
+      "brand": "Goodthreads",
+      "parent": "Amazon.com, Inc.",
+      "aliases": ["Goodthreads"],
+      "platform": "amazon",
+      "reason": "Amazon private-label menswear apparel brand.",
+      "citation": "https://themarkup.org/investigation/2021/10/14/how-amazon-steers-shoppers-to-its-own-products",
+      "category": "Apparel"
+    },
+    {
+      "brand": "Great Value",
+      "parent": "Walmart Inc.",
+      "aliases": ["Great Value", "great value"],
+      "platform": "walmart",
+      "reason": "Walmart's multi-billion-dollar food and grocery house brand that displaces independent food producers.",
+      "citation": "https://www.walmart.com/cp/great-value/1043869",
+      "category": "Grocery"
+    },
+    {
+      "brand": "Equate",
+      "parent": "Walmart Inc.",
+      "aliases": ["Equate Beauty", "Equate Health"],
+      "platform": "walmart",
+      "reason": "Walmart private-label health, OTC pharmaceuticals, and personal care brand.",
+      "citation": "https://www.walmart.com/cp/equate/1005862",
+      "category": "Health & Beauty"
+    },
+    {
+      "brand": "Mainstays",
+      "parent": "Walmart Inc.",
+      "aliases": ["Mainstays Home", "Mainstays Furniture"],
+      "platform": "walmart",
+      "reason": "Walmart private-label home decor, bedding, and kitchenware brand.",
+      "citation": "https://www.walmart.com/cp/mainstays/133012",
+      "category": "Home"
+    },
+    {
+      "brand": "Onn",
+      "parent": "Walmart Inc.",
+      "aliases": ["onn.", "onn", "Onn Electronics", "onn. Roku TV"],
+      "platform": "walmart",
+      "reason": "Walmart private-label consumer electronics, streaming boxes, cables, and televisions.",
+      "citation": "https://www.walmart.com/cp/onn/7451963",
+      "category": "Electronics"
+    },
+    {
+      "brand": "Good & Gather",
+      "parent": "Target Corporation",
+      "aliases": ["Good and Gather", "Good & Gather Organic"],
+      "platform": "target",
+      "reason": "Target's dominant flagship food and beverage private-label brand.",
+      "citation": "https://corporate.target.com/article/2019/08/good-gather-announcement",
+      "category": "Grocery"
+    },
+    {
+      "brand": "Up&Up",
+      "parent": "Target Corporation",
+      "aliases": ["up & up", "up&up", "Up and Up"],
+      "platform": "target",
+      "reason": "Target private-label household, cleaning, paper products, and health essentials.",
+      "citation": "https://corporate.target.com/article/2024/02/up-and-up-relaunch",
+      "category": "Household"
+    },
+    {
+      "brand": "Cat & Jack",
+      "parent": "Target Corporation",
+      "aliases": ["Cat & Jack", "Cat and Jack"],
+      "platform": "target",
+      "reason": "Target proprietary children's clothing brand producing over $3B in annual sales.",
+      "citation": "https://corporate.target.com/article/2020/02/cat-jack-milestone",
+      "category": "Apparel"
+    },
+    {
+      "brand": "Threshold",
+      "parent": "Target Corporation",
+      "aliases": ["Threshold Home", "Threshold designed with Studio McGee"],
+      "platform": "target",
+      "reason": "Target proprietary furniture, bedding, and home decoration label.",
+      "citation": "https://corporate.target.com/about/products-services/target-brands",
+      "category": "Home"
+    },
+    {
+      "brand": "Kirkland Signature",
+      "parent": "Costco Wholesale Corporation",
+      "aliases": ["Kirkland", "Kirkland Signature"],
+      "platform": "costco",
+      "reason": "Costco's universal private-label representing over 30% of total Costco sales volume.",
+      "citation": "https://www.costco.com/kirkland-signature.html",
+      "category": "General Merchandise"
+    },
+    {
+      "brand": "Insignia",
+      "parent": "Best Buy Co., Inc.",
+      "aliases": ["Insignia TV", "Insignia Fire TV", "Insignia Accessories"],
+      "platform": "bestbuy",
+      "reason": "Best Buy private-label consumer electronics, appliances, and televisions.",
+      "citation": "https://www.bestbuy.com/site/brands/insignia/pcmcat156200050005.c",
+      "category": "Electronics"
+    },
+    {
+      "brand": "Dynex",
+      "parent": "Best Buy Co., Inc.",
+      "aliases": ["Dynex Electronics"],
+      "platform": "bestbuy",
+      "reason": "Best Buy value private-label cables, adapters, and small consumer electronics.",
+      "citation": "https://www.bestbuy.com",
+      "category": "Electronics"
+    },
+    {
+      "brand": "Husky",
+      "parent": "The Home Depot, Inc.",
+      "aliases": ["Husky Tools", "Husky Heavy Duty"],
+      "platform": "homedepot",
+      "reason": "Home Depot exclusive house brand for hand tools, power tool storage, and pneumatic accessories.",
+      "citation": "https://www.homedepot.com/b/Tools-Hand-Tools/Husky/N-5yc1vZc1zgZrd",
+      "category": "Tools"
+    },
+    {
+      "brand": "HDX",
+      "parent": "The Home Depot, Inc.",
+      "aliases": ["HDX Home Depot"],
+      "platform": "homedepot",
+      "reason": "Home Depot private-label hardware, cleaning products, paint buckets, and utility storage.",
+      "citation": "https://www.homedepot.com/b/HDX/N-5yc1vZ5bb",
+      "category": "Hardware"
+    },
+    {
+      "brand": "Kobalt",
+      "parent": "Lowe's Companies, Inc.",
+      "aliases": ["Kobalt Tools", "Kobalt 24V"],
+      "platform": "lowes",
+      "reason": "Lowe's proprietary house brand for power tools, mechanics hand tools, and outdoor equipment.",
+      "citation": "https://www.lowes.com/c/Kobalt",
+      "category": "Tools"
+    }
+  ]
+}

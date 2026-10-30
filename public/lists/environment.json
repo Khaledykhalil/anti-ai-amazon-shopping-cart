@@ -1,0 +1,136 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-10-29T00:00:00Z",
+  "category": "fast_fashion",
+  "description": "Ultra-Fast Fashion, microplastic pollution, and poor environmental labor practice rankings.",
+  "entries": [
+    {
+      "brand": "Shein",
+      "parent": "Roadget Business Pte. Ltd.",
+      "aliases": ["SHEIN", "Shein Curve", "MOTF"],
+      "reason": "Ultra-fast fashion adding 6,000+ synthetic polyester items daily; high levels of hazardous chemicals (lead, phthalates) identified by Greenpeace.",
+      "citation": "https://www.greenpeace.org/international/press-release/56979/greenpeace-germany-finds-hazardous-chemicals-in-shein-clothes/",
+      "environmentalRating": "Very Poor (0/5)"
+    },
+    {
+      "brand": "Temu",
+      "parent": "PDD Holdings",
+      "aliases": ["TEMU"],
+      "reason": "Disposability-first ultra-cheap supply chain driving massive international air-freight carbon emissions with zero environmental transparency.",
+      "citation": "https://goodonyou.eco/how-ethical-is-temu/",
+      "environmentalRating": "Very Poor (0/5)"
+    },
+    {
+      "brand": "Romwe",
+      "parent": "Roadget Business Pte. Ltd. (Shein)",
+      "aliases": ["ROMWE"],
+      "reason": "Shein sister brand utilizing the same opaque, hyper-polluting synthetic supply chain with zero circularity.",
+      "citation": "https://goodonyou.eco/how-ethical-is-romwe/",
+      "environmentalRating": "Very Poor (0/5)"
+    },
+    {
+      "brand": "Fashion Nova",
+      "parent": "Fashion Nova, LLC",
+      "aliases": ["FashionNova"],
+      "reason": "Relies heavily on non-biodegradable virgin polyester, elastane, and toxic dye effluent; settlement with US FTC over wage theft and deceptive review suppression.",
+      "citation": "https://www.ftc.gov/news-events/news/press-releases/2022/01/fashion-nova-will-pay-42-million-settle-ftc-allegations-it-blocked-negative-reviews-its-products",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "Boohoo",
+      "parent": "Boohoo Group PLC",
+      "aliases": ["BoohooMAN", "boohoo"],
+      "reason": "Sunday Times investigation revealed Leicester factory sweatshop labor under minimum wage and hazardous, unchecked fabric dyeing effluent.",
+      "citation": "https://www.thetimes.co.uk/article/boohoo-fashion-giant-faces-investigation-after-sweatshop-revelations-wqq9w30r9",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "PrettyLittleThing",
+      "parent": "Boohoo Group PLC",
+      "aliases": ["PLT"],
+      "reason": "Promotes 99% discount disposable consumerism; products made overwhelmingly of non-recycled fossil-fuel derived synthetics.",
+      "citation": "https://goodonyou.eco/how-ethical-is-pretty-little-thing/",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "Cider",
+      "parent": "Fashinza / Fable Brands",
+      "aliases": ["Shop Cider", "Cider Clothing"],
+      "reason": "Algorithms-driven rapid garment production model with zero third-party environmental audits or supply-chain transparency.",
+      "citation": "https://goodonyou.eco/how-ethical-is-cider/",
+      "environmentalRating": "Not Good Enough (1/5)"
+    },
+    {
+      "brand": "Zaful",
+      "parent": "Wise Finance / Globalegrow",
+      "aliases": ["ZAFUL"],
+      "reason": "Extreme fast fashion with opaque manufacturing, no traceability on raw materials, and high synthetic microplastic shed.",
+      "citation": "https://goodonyou.eco/how-ethical-is-zaful/",
+      "environmentalRating": "Very Poor (0/5)"
+    },
+    {
+      "brand": "Missguided",
+      "parent": "Shein (Licensed) / Frasers Group",
+      "aliases": ["Missguided"],
+      "reason": "Sold £1 bikinis exemplifying hyper-disposable fashion that breaks down into persistent microplastics in oceans.",
+      "citation": "https://www.bbc.com/news/newsbeat-48712716",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "Forever 21",
+      "parent": "Authentic Brands Group / SPARC Group",
+      "aliases": ["Forever21", "F21"],
+      "reason": "History of toxic chemical usage in textiles, low supply chain transparency, and landfill saturation.",
+      "citation": "https://goodonyou.eco/how-ethical-is-forever-21/",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "Primark",
+      "parent": "Associated British Foods PLC",
+      "aliases": ["Primark Cares"],
+      "reason": "High-volume discount apparel model reliant on low-cost labor and virgin synthetics that resist circular recycling.",
+      "citation": "https://goodonyou.eco/how-ethical-is-primark/",
+      "environmentalRating": "Not Good Enough (2/5)"
+    },
+    {
+      "brand": "Nasty Gal",
+      "parent": "Boohoo Group PLC",
+      "aliases": ["NastyGal"],
+      "reason": "Shares Boohoo Group's supply chain issues, with high proportions of virgin acrylic, nylon, and polyurethane.",
+      "citation": "https://goodonyou.eco/how-ethical-is-nasty-gal/",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "Urbanic",
+      "parent": "Urbanic Inc.",
+      "aliases": ["Urbanic London"],
+      "reason": "AI-driven fast fashion with rapid trend generation and absence of verifiable carbon or microplastic mitigation commitments.",
+      "citation": "https://goodonyou.eco/how-ethical-is-urbanic/",
+      "environmentalRating": "Very Poor (1/5)"
+    },
+    {
+      "brand": "ASOS",
+      "parent": "ASOS PLC",
+      "aliases": ["ASOS DESIGN", "Topshop (ASOS)"],
+      "reason": "Massive volume production despite corporate pledges; millions of returns incinerated or dumped in global South landfills.",
+      "citation": "https://www.wired.co.uk/article/clothing-returns-environmental-cost",
+      "environmentalRating": "Not Good Enough (2/5)"
+    },
+    {
+      "brand": "Zara",
+      "parent": "Inditex S.A.",
+      "aliases": ["Zara Home", "Inditex"],
+      "reason": "Pioneer of modern fast-fashion production cycles producing over 450 million garments annually with significant carbon footprint.",
+      "citation": "https://goodonyou.eco/how-ethical-is-zara/",
+      "environmentalRating": "Not Good Enough (2/5)"
+    },
+    {
+      "brand": "H&M",
+      "parent": "Hennes & Mauritz AB",
+      "aliases": ["HM", "H&M Conscious"],
+      "reason": "Sued for greenwashing its 'Conscious Collection' using deceptive environmental scorecards based on Higg Index.",
+      "citation": "https://qz.com/hm-is-being-sued-for-misleading-sustainability-claims-1849767860",
+      "environmentalRating": "Not Good Enough (2/5)"
+    }
+  ]
+}

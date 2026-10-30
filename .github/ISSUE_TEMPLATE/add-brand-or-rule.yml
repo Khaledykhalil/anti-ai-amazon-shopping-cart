@@ -1,0 +1,80 @@
+name: "Suggest a Brand or Filter Rule"
+description: "Submit a new brand, corporate subsidiary mapping, or filter rule to public/lists/"
+title: "[Brand Addition]: "
+labels: ["community-rule", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Thank you for contributing to Blurify!
+        Blurify is 100% community-driven. Every entry in our filter database must be backed by verifiable sources and clear corporate hierarchy citations.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Filter Category
+      description: Select the Blurify category this brand belongs to.
+      options:
+        - "🍉 Geopolitical & Ethical Boycotts (bds_boycott)"
+        - "🤖 AI Slop & Synthetic Content (ai_slop)"
+        - "📦 Alphabet-Soup Dropshipper (dropship_junk)"
+        - "🏢 Monopoly Private Label / House Brand (house_brands)"
+        - "👗 Ultra-Fast Fashion & Microplastics (fast_fashion)"
+        - "⛓️ Forced Labor & Sweatshops (labor_violations)"
+        - "🐇 Non-Cruelty-Free / Animal Testing (animal_testing)"
+        - "🧪 Ultra-Processed (NOVA 4) Food (ultra_processed)"
+        - "🔞 Counterfeit Risk & Family Shield (low_trust_nsfw)"
+        - "✅ Whitelist Exception (Request unblurring a legitimate brand)"
+    validations:
+      required: true
+
+  - type: input
+    id: brand_name
+    attributes:
+      label: Brand or Seller Name
+      description: Exact name as it appears on shopping listings.
+      placeholder: "e.g., SodaStream, Shein, Amazon Basics"
+    validations:
+      required: true
+
+  - type: input
+    id: parent_company
+    attributes:
+      label: Parent Conglomerate / Ultimate Owner
+      description: The holding company or corporate parent (if applicable).
+      placeholder: "e.g., PepsiCo, Unilever, Roadget Business Pte. Ltd."
+
+  - type: input
+    id: aliases
+    attributes:
+      label: Known Sub-Brands or Aliases
+      description: Comma-separated alternative names or product lines.
+      placeholder: "e.g., Soda Stream, Sodastream Sparkling, SodaStream USA"
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Filtering
+      description: Neutral, factual explanation of why this brand meets the category criteria.
+      placeholder: "Explain the ownership, supply chain finding, or manufacturing practice..."
+    validations:
+      required: true
+
+  - type: input
+    id: citation_url
+    attributes:
+      label: Verifiable Source / Citation URL
+      description: Link to reputable reporting, government finding (DOL/CBP), BDS official list, or corporate filing.
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Contribution Checklist
+      options:
+        - label: "I have verified that this brand is not already in public/lists/*.json"
+          required: true
+        - label: "The source link is neutral, factual, and publicly accessible without paywalls"
+          required: true

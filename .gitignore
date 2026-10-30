@@ -2,10 +2,13 @@
 node_modules/
 .pnpm-store/
 
-# Build artifacts
+# WXT & Build artifacts
+.output/
+.wxt/
 dist/
 dist-zip/
 *.crx
+*.zip
 
 # Logs
 npm-debug.log*

@@ -1,138 +1,179 @@
-# 🛡️ Anti-AI Amazon Shopping Cart
+# 🛡️ Blurify: Universal Ethical & Slop Filter for E-Commerce
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](https://opensource.org/licenses/MIT)
-[![Manifest V3](https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue.svg)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Bundled%20with-Vite-646CFF.svg)](https://vitejs.dev/)
+<p align="center">
+  <img src="public/icon/icon-128.png" alt="Blurify Logo" width="96" height="96" />
+</p>
 
-**Anti-AI Amazon Shopping Cart** is an open-source browser extension that detects, flags, and hides AI-generated product photography, synthetic fashion models, and marketing slop on Amazon. It prioritizes **real customer review photos** so you can see what clothes, food, and products actually look like before spending your hard-earned money.
+<p align="center">
+  <strong>Take back your shopping cart from AI slop, dropshippers, predatory ads, and corporate exploitation.</strong>
+</p>
 
----
-
-## 🎯 The Problem
-
-When shopping on Amazon for clothes, furniture, cookware, food, or lifestyle products, the majority of product listings now feature:
-- **Uncanny AI-generated models & mannequins** with impossible lighting, poreless plastic skin, and fabric draped via generative fill.
-- **Deceptive synthetic lifestyle staging** where items are digitally pasted into 3D renders that hide poor build quality and inaccurate proportions.
-- **AI-generated food photography** that looks like hyper-glossy gelatinous renders rather than actual ingredients.
-- **LLM-generated bullet points & descriptions** stuffed with clichés (*"a testament to elegance"*, *"seamless fusion"*, *"elevate your everyday"*).
-
-Shoppers buy products expecting what the AI marketing portrayed, only to receive items that look completely different in real life. **Anti-AI Amazon Shopping Cart** restores transparency to online shopping.
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-emerald.svg" alt="License: MIT" /></a>
+  <a href="https://developer.chrome.com/docs/extensions/mv3/intro/"><img src="https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-blue.svg" alt="Manifest V3" /></a>
+  <a href="https://developer.apple.com/safari/extensions/"><img src="https://img.shields.io/badge/Safari-macOS%20%26%20iOS%20Ready-black.svg" alt="Safari Ready" /></a>
+  <img src="https://img.shields.io/badge/Privacy-100%25%20Local%20%2F%20Zero%20Telemetry-10b981.svg" alt="100% Local" />
+  <a href="https://github.com/Khaledykhalil/anti-ai-amazon-shopping-cart/pulls"><img src="https://img.shields.io/badge/PRs-Welcome-purple.svg" alt="PRs Welcome" /></a>
+</p>
 
 ---
 
-## ✨ Features
+## ⚡ The 1-Sentence Value Proposition
 
-- 🔍 **Multi-Signal AI Detection Engine**:
-  - **Frequency & Smoothness Analysis**: Measures micro-contrast and sensor grain signatures to differentiate real camera optics from over-smoothed synthetic diffusion models.
-  - **Color & Dynamic Range Probing**: Detects unnatural hyper-saturation and synthetic ambient occlusion.
-  - **Marketing Copy & Cliché Classifier**: Detects hallmark LLM buzzwords in titles and bullet points.
-  - **Seller Brand Analysis**: Identifies auto-generated consonant soup vendor brands (e.g. `XGTRZ`, `QWJBK`).
-  - **Metadata & Attribute Scans**: Inspects image URLs, alt tags, and data attributes for known synthetic render flags.
-
-- 📸 **"Real-Photos-First" Buyer Swap Engine**:
-  - Automatically fetches genuine photos submitted by verified buyers from Amazon customer reviews.
-  - 1-click swap replaces the fake AI hero image with an authentic customer photo showing how the product actually looks.
-
-- 🎛️ **Customizable Protection Modes**:
-  - **🛡️ Blur & Shield (Default)**: Overlays a frosted glass shield with AI confidence scores, detected reasons, and 1-click peek / buyer photo swap.
-  - **🚫 Hide Completely**: Collapses AI listings from search results and cart views so you only browse genuine products.
-  - **📸 Real Photos Only**: Automatically replaces AI images with real customer photos across the entire page.
-
-- 🏷️ **Integrated Search Control Bar**:
-  - Injected directly into Amazon search results. Shows the live count of AI items filtered and lets you switch modes on the fly.
-
-- ⚡ **Category Protections**:
-  - 👗 AI Clothing Models & Mannequins
-  - 🍔 AI Food & Grocery Photography
-  - ✍️ AI Marketing Buzzword Slop
+> **Blurify** is an open-source, cross-browser extension that automatically detects and applies optical blur, dimming, or hiding to AI-generated photography, white-label dropship junk, monopoly house brands, BDS & human-rights boycott targets, ultra-processed food additives, and predatory sponsored search ads across Amazon, eBay, Walmart, Shopify, and any store.
 
 ---
 
-## 🚀 Quick Start (Load Unpacked Extension)
+## 🏗️ Architecture & How It Works
 
-### 1. Build the Extension
+Blurify operates entirely on-device with **<5ms main-thread overhead**, combining an asynchronous 3-Tier Adapter Pipeline with an isolated Shadow-DOM rendering overlay:
+
+```mermaid
+flowchart TD
+    subgraph Browser Webpage
+        DOM["E-Commerce Page (Amazon, Walmart, Shopify, etc.)"]
+        OBS["Debounced MutationObserver + IntersectionObserver"]
+    end
+
+    subgraph 3-Tier Normalization Engine
+        DOM --> OBS
+        OBS --> TIER1["Tier 1: Dedicated Marketplace Adapters (Amazon, eBay, BigBox)"]
+        OBS --> TIER2["Tier 2: Standalone CMS Fingerprinting (Shopify, WooCommerce, Magento)"]
+        OBS --> TIER3["Tier 3: Universal Semantic Fallback (Schema.org & Visual Price Heuristics)"]
+        TIER1 --> NODE["Normalized ProductNode Interface"]
+        TIER2 --> NODE
+        TIER3 --> NODE
+    end
+
+    subgraph Local 10-Category Filter Engine
+        NODE --> REGISTRY["Filter Registry (src/filters/registry.ts)"]
+        REGISTRY --> STATS["Local Static JSON Lists (public/lists/*.json)"]
+        REGISTRY --> ENTROPY["Phonetic Entropy Analyzer (src/filters/entropy.ts)"]
+        REGISTRY --> HEURISTICS["AI & NOVA-4 Heuristics (src/filters/heuristics.ts)"]
+    end
+
+    subgraph User Experience
+        REGISTRY --> EVAL["Filter Action: Blur (12px) | Dim (25%) | Hide (none)"]
+        EVAL --> SHADOW["Isolated Shadow DOM Host (attachShadow)"]
+        SHADOW --> PILL["Glassmorphic Overlay: Reason Pill + 👁️ Peek + ✓ Whitelist Brand"]
+    end
+```
+
+---
+
+## 🎯 The 10 Opt-In Filter Categories
+
+Every category is opt-in, fully customizable, and supports 3 action modes: **Blur** (frosted shield + reason pill), **Dim** (30% opacity), or **Hide** (`display: none`).
+
+| Filter | Icon | Detection Signals & Mechanics | Real-World Target Examples |
+| :--- | :---: | :--- | :--- |
+| **BDS & Ethical Boycotts** | 🍉 | Sub-brand to parent conglomerate mappings, verified citations, settlement supply lines | SodaStream, Sabra, Ahava, Puma, HP, Carrefour, Siemens, AXA |
+| **AI Slop & Imagery** | 🤖 | Prompt leakage markers (`--ar`, `unreal engine`, `8k`), synthetic skin/cloth textures, formulaic KDP book subtitles | Generic AI-generated apparel models, KDP AI self-published guides |
+| **Alphabet-Soup Dropshippers** | 📦 | Shannon entropy analysis, 0-vowel ratios, unpronounceable consonant clusters, factory prefixes | `ZXQWTY`, `VBNKL`, `QWRTYP`, `B09X-PRO`, `SZ-Direct` |
+| **Sponsored Ads** | 📢 | Marketplace sponsored tokens, hidden `sp-sponsored-result` flags, promoted carousel slots | Sponsored Amazon search cards, Walmart Promoted listings |
+| **Monopoly House Brands** | 🏢 | Retailer private labels that clone and undercut independent small businesses | Amazon Basics, Solimo, Great Value, Onn, Good & Gather, Kirkland |
+| **Ultra-Fast Fashion** | 👗 | Disposable garments, 100% virgin-synthetic microplastics, toxic dye effluents | Shein, Temu, Romwe, Fashion Nova, Boohoo, PrettyLittleThing |
+| **Forced Labor Watchlist** | ⛓️ | CBP Withhold Release Orders, DOL findings, ASPI forced labor supply lines | Xinjiang cotton originations, coercive overseas dispatch labor |
+| **Non-Cruelty-Free** | 🐇 | Parent corporations conducting animal testing for foreign regulatory compliance | L'Oréal, Estée Lauder, P&G, Johnson & Johnson, Colgate-Palmolive |
+| **Ultra-Processed Foods** | 🧪 | NOVA Group 4 markers: High-Fructose Corn Syrup, Red 40, Yellow 5, hydrogenated oils | Synthetic candy, mass-market cereal bars, hydrogenated snacks |
+| **Low Trust & NSFW** | 🔞 | Severe review drop-offs (<3.2 stars), review velocity anomalies, adult keyword shield | Dropshipped counterfeits, explicit adult items on family accounts |
+
+---
+
+## 🛒 Supported Shopping Platforms
+
+- **Tier 1 (Out-of-the-Box Dedicated Adapters):**
+  - Amazon (`.com`, `.co.uk`, `.ca`, `.de`, `.fr`, `.it`, `.es`, `.co.jp`, `.in`, `.com.au`)
+  - eBay (`.com`, `.co.uk`, `.ca`, `.de`, `.fr`)
+  - Walmart, Target, Best Buy, Etsy, Costco, Home Depot, Lowe's, Wayfair
+  - Temu, AliExpress, Shein
+- **Tier 2 (Automatic Standalone Store Fingerprinting):**
+  - All Shopify Stores (`cdn.shopify.com`, `meta[name="shopify-digital-wallet"]`)
+  - WooCommerce Stores (`body.woocommerce`, `.wc-block-grid__product`)
+  - Magento, BigCommerce, Squarespace Commerce
+- **Tier 3 (Universal Semantic Fallback):**
+  - Any custom e-commerce website using Schema.org `Product` microdata, JSON-LD graphs, or repeating visual card patterns.
+
+---
+
+## ⏱️ Add a Brand in 30 Seconds (No Coding Required)
+
+Blurify's filter lists are completely transparent and editable directly on GitHub:
+
+1. Open [`public/lists/`](public/lists/) in your browser.
+2. Select the list you want to update (e.g. [`boycotts.json`](public/lists/boycotts.json) or [`environment.json`](public/lists/environment.json)).
+3. Click the **✏️ Edit (pencil icon)** button.
+4. Add the brand entry:
+   ```json
+   {
+     "brand": "BrandName",
+     "parent": "Parent Conglomerate",
+     "aliases": ["SubBrand A", "SubBrand B"],
+     "reason": "Neutral explanation with factual citation.",
+     "citation": "https://credible-source.org/report"
+   }
+   ```
+5. Click **Propose changes** to submit your Pull Request!
+
+---
+
+## 💻 Local Development & Build
+
+Blurify is built with **[WXT](https://wxt.dev/)**, **TypeScript**, **React 19**, and **Tailwind CSS**.
+
+### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/Khaledykhalil/anti-ai-amazon-shopping-cart.git
-cd anti-ai-amazon-shopping-cart
+git clone https://github.com/Khaledykhalil/anti-ai-amazon-shopping-cart.git blurify
+cd blurify
 
 # Install dependencies
 npm install
 
-# Build extension
-npm run build
-```
-
-### 2. Load into Chrome / Brave / Edge
-1. Open your browser and navigate to `chrome://extensions/` (or `brave://extensions/` / `edge://extensions/`).
-2. Toggle on **Developer mode** in the top right corner.
-3. Click **Load unpacked**.
-4. Select the `dist/` directory inside this project folder.
-5. Go to [Amazon](https://www.amazon.com) and search for any product (e.g., "summer dress" or "kitchen decor"). The shield will activate automatically!
-
----
-
-## 🛠️ Development
-
-```bash
-# Start watch mode during development
+# Start development with Hot Module Replacement
 npm run dev
+```
 
-# Run TypeScript typechecks
-npm run typecheck
+### Building for Cross-Browser Stores
+```bash
+# Build for Chrome (Manifest V3)
+npm run build:chrome
+# Output directory: .output/chrome-mv3
 
-# Rebuild extension icons (requires Python 3 and Pillow)
-npm run generate-icons
+# Build for Firefox (MV2/MV3)
+npm run build:firefox
+# Output directory: .output/firefox-mv2
+
+# Build for Safari (macOS & iOS)
+npm run build:safari
+# Output directory: .output/safari-mv2
+
+# Package store ZIPs for upload
+npm run zip:chrome
+npm run zip:firefox
+```
+
+### Running Tests & Verification
+```bash
+# Run Vitest test suite (entropy, heuristics, brand matching)
+npm test
+
+# Run TypeScript compilation
+npm run compile
 ```
 
 ---
 
-## 📂 Project Architecture
+## 🔒 Privacy & Store Compliance Guarantee
 
-```
-anti-ai-amazon-shopping-cart/
-├── public/
-│   ├── manifest.json            # Manifest V3 specification
-│   └── icons/                   # High-res extension icons (16, 32, 48, 128px)
-├── src/
-│   ├── background/
-│   │   └── service-worker.ts    # Ephemeral service worker & badge manager
-│   ├── content/
-│   │   ├── index.ts             # Content script entry point & DOM observer
-│   │   ├── detector.ts          # Multi-signal AI detection & visual heuristics
-│   │   ├── realPhotos.ts        # Verified customer review photo extractor & swapper
-│   │   ├── ui.ts                # Injected search banner, shields, & detail cards
-│   │   └── styles.css           # Scoped styles for injected overlays
-│   ├── popup/
-│   │   ├── popup.html           # Modern extension popup UI
-│   │   ├── popup.css            # Slate & emerald styling
-│   │   └── popup.ts             # User settings & stats controller
-│   └── shared/
-│       ├── constants.ts         # Selectors, buzzword dictionary, sensitivity scales
-│       ├── storage.ts           # Type-safe sync & local storage helpers
-│       └── types.ts             # Shared TypeScript definitions
-├── scripts/
-│   └── generate-icons.py        # Icon generator script
-├── package.json
-├── tsconfig.json
-├── vite.config.ts               # Background & popup bundle config
-└── vite.content.config.ts       # Standalone content script IIFE bundle config
-```
+- **Zero Remotely Hosted Code:** Blurify does not use `eval()`, `new Function()`, or dynamic `<script>` loading.
+- **Zero Telemetry:** No analytics, no logging endpoints, no tracking pixels, and no external network queries.
+- **Shadow DOM Isolation:** Blurify controls are encapsulated in Shadow Roots (`attachShadow({ mode: 'open' })`) to prevent conflicts with checkout flows.
 
----
-
-## 🤝 Contributing
-
-Contributions are warmly welcomed! If you encounter new patterns of AI slop, synthetic staging, or new Amazon DOM layouts:
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/new-ai-heuristic`)
-3. Commit your changes (`git commit -m 'Add new AI heuristic for food items'`)
-4. Push to the branch (`git push origin feature/new-ai-heuristic`)
-5. Open a Pull Request
+For full disclosures, see [PRIVACY_POLICY.md](PRIVACY_POLICY.md) and [STORE_SUBMISSION_GUIDE.md](STORE_SUBMISSION_GUIDE.md).
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+Blurify is open-source software licensed under the [MIT License](LICENSE).
